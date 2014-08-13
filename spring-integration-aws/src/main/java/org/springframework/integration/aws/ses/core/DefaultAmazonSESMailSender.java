@@ -57,8 +57,8 @@ public class DefaultAmazonSESMailSender implements JavaMailSender {
 		Properties properties = new Properties();
 		properties.setProperty("mail.transport.protocol", "aws");
 
-		properties.setProperty(AWSJavaMailTransport.AWS_ACCESS_KEY_PROPERTY, credentials.getAccessKey());
-		properties.setProperty(AWSJavaMailTransport.AWS_SECRET_KEY_PROPERTY, credentials.getSecretKey());
+		properties.setProperty(AWSJavaMailTransport.AWS_ACCESS_KEY_PROPERTY, credentials.getAWSAccessKeyId());
+		properties.setProperty(AWSJavaMailTransport.AWS_SECRET_KEY_PROPERTY, credentials.getAWSSecretKey());
 
 		javaMailSender.setJavaMailProperties(properties);
 

@@ -63,7 +63,7 @@ public class BasicAWSCredentials implements AWSCredentials {
 	/**
 	 * Get the Access key to the Amazon WS account
 	 */
-	public String getAccessKey() {
+	public String getAWSAccessKeyId() {
 		return accessKey;
 	}
 
@@ -78,7 +78,7 @@ public class BasicAWSCredentials implements AWSCredentials {
 	/**
 	 * Get the Secret key to the Amazon WS account
 	 */
-	public String getSecretKey() {
+	public String getAWSSecretKey() {
 		return secretKey;
 	}
 

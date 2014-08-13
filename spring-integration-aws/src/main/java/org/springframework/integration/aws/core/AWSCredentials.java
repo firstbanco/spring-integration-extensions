@@ -28,11 +28,11 @@ public interface AWSCredentials {
 	/**
 	 * Get the Access key to the Amazon WS account
 	 */
-	String getAccessKey();
+	String getAWSAccessKeyId();
 
 	/**
 	 * Get the Secret key to the Amazon WS account
 	 */
-	String getSecretKey();
+	String getAWSSecretKey();
 
 }

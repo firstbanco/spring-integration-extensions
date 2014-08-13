@@ -234,12 +234,12 @@ public abstract class AbstractAmazonS3Operations implements AmazonS3Operations,I
 				fos.write(bytes, 0, read);
 			}
 		} catch (FileNotFoundException e) {
-			throw new AmazonS3OperationException(credentials.getAccessKey(),
+			throw new AmazonS3OperationException(credentials.getAWSAccessKeyId(),
 					 bucketName,
 					 objectName,
 					 "Exception caught while writing the temporary file from input stream", e);
 		} catch(IOException ioe) {
-			throw new AmazonS3OperationException(credentials.getAccessKey(),
+			throw new AmazonS3OperationException(credentials.getAWSAccessKeyId(),
 					 bucketName,
 					 objectName,
 					 "Exception caught while reading from the provided input stream", ioe);
@@ -316,7 +316,7 @@ public abstract class AbstractAmazonS3Operations implements AmazonS3Operations,I
 					s3Object.getUserMetaData(), stringContentMD5);
 		} catch (Exception e) {
 			throw new AmazonS3OperationException(
-					credentials.getAccessKey(), bucketName,
+					credentials.getAWSAccessKeyId(), bucketName,
 					key,
 					"Encountered exception while putting an object, see root cause for more details",
 					e);
@@ -425,7 +425,7 @@ public abstract class AbstractAmazonS3Operations implements AmazonS3Operations,I
 			return doGetObject(bucketName, key);
 		} catch (Exception e) {
 			throw new AmazonS3OperationException(
-					credentials.getAccessKey(), bucketName,
+					credentials.getAWSAccessKeyId(), bucketName,
 					key,
 					"Encountered exception while putting an object, see root cause for more details",
 					e);

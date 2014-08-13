@@ -108,12 +108,12 @@ public abstract class AbstractAWSOutboundChannelAdapterParserTests<T extends Mes
 	public final void awsCredentialsTestWithPropFiles() {
 		MessageHandler handler = getMessageHandlerForBeanDefinition(CREDENTIALS_TEST_ONE);
 		AWSCredentials credentials = getCredentials();
-		String accessKey = credentials.getAccessKey();
-		String secretKey = credentials.getSecretKey();
+		String accessKey = credentials.getAWSAccessKeyId();
+		String secretKey = credentials.getAWSSecretKey();
 		AWSCredentials configuredCredentials =
 			TestUtils.getPropertyValue(handler, "credentials",AWSCredentials.class);
-		Assert.assertEquals(accessKey, configuredCredentials.getAccessKey());
-		Assert.assertEquals(secretKey, configuredCredentials.getSecretKey());
+		Assert.assertEquals(accessKey, configuredCredentials.getAWSAccessKeyId());
+		Assert.assertEquals(secretKey, configuredCredentials.getAWSSecretKey());
 	}
 
 	/**
@@ -123,11 +123,11 @@ public abstract class AbstractAWSOutboundChannelAdapterParserTests<T extends Mes
 	public final void awsCredentialsTestWithoutPropFiles() {
 		MessageHandler handler = getMessageHandlerForBeanDefinition(CREDENTIALS_TEST_TWO);
 		AWSCredentials credentials = getCredentials();
-		String accessKey = credentials.getAccessKey();
-		String secretKey = credentials.getSecretKey();
+		String accessKey = credentials.getAWSAccessKeyId();
+		String secretKey = credentials.getAWSSecretKey();
 		AWSCredentials configuredCredentials =
 			TestUtils.getPropertyValue(handler, "credentials",AWSCredentials.class);
-		Assert.assertEquals(accessKey, configuredCredentials.getAccessKey());
-		Assert.assertEquals(secretKey, configuredCredentials.getSecretKey());
+		Assert.assertEquals(accessKey, configuredCredentials.getAWSAccessKeyId());
+		Assert.assertEquals(secretKey, configuredCredentials.getAWSSecretKey());
 	}
 }

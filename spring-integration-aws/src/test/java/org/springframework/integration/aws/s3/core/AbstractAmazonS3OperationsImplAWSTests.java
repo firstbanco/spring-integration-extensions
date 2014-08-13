@@ -79,7 +79,7 @@ public abstract class AbstractAmazonS3OperationsImplAWSTests {
 	public static final void setup() throws Exception {
 		AWSCredentials credentials = getCredentials();
 		client = new AmazonS3Client(
-				new BasicAWSCredentials(credentials.getAccessKey(), credentials.getSecretKey()));
+				new BasicAWSCredentials(credentials.getAWSAccessKeyId(), credentials.getAWSSecretKey()));
 	}
 
 

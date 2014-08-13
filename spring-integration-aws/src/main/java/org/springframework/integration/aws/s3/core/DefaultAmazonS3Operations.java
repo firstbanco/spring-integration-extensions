@@ -76,8 +76,8 @@ public class DefaultAmazonS3Operations extends AbstractAmazonS3Operations {
 		s3Factory = new AbstractAWSClientFactory<AmazonS3Client>() {
 			@Override
 			protected AmazonS3Client getClientImplementation() {
-				String accessKey = credentials.getAccessKey();
-				String secretKey = credentials.getSecretKey();
+				String accessKey = credentials.getAWSAccessKeyId();
+				String secretKey = credentials.getAWSSecretKey();
 				BasicAWSCredentials credentials = new BasicAWSCredentials(accessKey, secretKey);
 				return new AmazonS3Client(credentials);
 			}
@@ -235,7 +235,7 @@ public class DefaultAmazonS3Operations extends AbstractAmazonS3Operations {
 			upload = transferManager.upload(request);
 		} catch (Exception e) {
 			throw new AmazonS3OperationException(
-					credentials.getAccessKey(), bucketName,
+					credentials.getAWSAccessKeyId(), bucketName,
 					key,
 					"Encountered Exception while invoking upload on multipart/single thread file, " +
 					"see nested exceptions for more details",
@@ -252,7 +252,7 @@ public class DefaultAmazonS3Operations extends AbstractAmazonS3Operations {
 			}
 		} catch (Exception e) {
 			throw new AmazonS3OperationException(
-					credentials.getAccessKey(), bucketName,
+					credentials.getAWSAccessKeyId(), bucketName,
 					key,
 					"Encountered Exception while uploading the multipart/single thread file, " +
 					"see nested exceptions for more details",
@@ -273,7 +273,7 @@ public class DefaultAmazonS3Operations extends AbstractAmazonS3Operations {
 						getAccessControlList(bucketName, key, objectACL));
 			} catch (Exception e) {
 				throw new AmazonS3OperationException(
-						credentials.getAccessKey(), bucketName,
+						credentials.getAWSAccessKeyId(), bucketName,
 						key,
 						"Encountered Exception while setting the Object ACL for key , " + key +
 						"see nested exceptions for more details",

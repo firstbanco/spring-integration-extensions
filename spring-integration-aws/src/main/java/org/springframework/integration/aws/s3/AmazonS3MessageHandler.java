@@ -134,7 +134,7 @@ public class AmazonS3MessageHandler extends AbstractMessageHandler {
 		}
 		else {
 			throw new AmazonS3OperationException
-			(credentials.getAccessKey(),
+			(credentials.getAWSAccessKeyId(),
 					bucket, objectName, "The Message payload is of unexpected type "
 					+ payload.getClass().getCanonicalName() + ", only supported types are"
 					+" java.io.File, java.io.InputStream, byte[] and java.lang.String");
